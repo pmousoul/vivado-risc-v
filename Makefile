@@ -30,9 +30,14 @@ docker-shell:
 apt-install:
 	sudo apt update
 	sudo apt upgrade
-	sudo apt install default-jdk device-tree-compiler curl gawk \
-	 libtinfo5 libmpc-dev libssl-dev gcc gcc-riscv64-linux-gnu flex bison bc parted udev dosfstools
+	sudo apt install openjdk-11-jdk device-tree-compiler curl gawk \
+	 libmpc-dev libssl-dev gcc gcc-riscv64-linux-gnu flex bison bc parted udev dosfstools
+	wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
+	sudo apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb
+	rm ./libtinfo5_6.3-2ubuntu0.1_amd64.deb
 ifeq ($(shell test -r /etc/os-release && . /etc/os-release && echo $$VERSION_CODENAME),jammy)
+	sudo apt install python-is-python3
+else ifeq ($(shell test -r /etc/os-release && . /etc/os-release && echo $$VERSION_CODENAME),noble)
 	sudo apt install python-is-python3
 else
 	sudo apt install python
