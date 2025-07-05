@@ -40,7 +40,7 @@ sudo access required.
 Alternatively, a Windows 10 machine with Ubuntu on Windows can be used to run the tools, see [Running RISC-V tools on Windows](docs/ubuntu-on-windows.md).
 
 ## Software
-Download and install AMD/Xilinx
+### Download and install AMD/Xilinx
 [Vitis](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html).
 Supported Vitis versions are 2020.2, 2021.1, 2021.2, 2022.1, 2022.2, 2023.1, 2023.2, 2024.1, 2024.2, 2025.1.
 Vitis installation includes Vivado Design Suite - there is no need to install Vivado separately.
@@ -48,6 +48,19 @@ Vitis installation includes Vivado Design Suite - there is no need to install Vi
 Nexys Video, Nexys A7 100T and Arty A7 100T are supported by free version of Vivado. KC705, VC707 and Genesys 2 require Vivado license.
 
 If using a Digilent board, install [Vivado Board Files for Digilent FPGA Boards](https://github.com/Digilent/vivado-boards).
+
+### riscv64-linux-gnu-gcc/cpp version
+
+Make sure that
+
+riscv64-linux-gnu-gcc\
+riscv64-linux-gnu-cpp
+
+versions are below 11
+
+because
+
+of the following [uboot open issue](https://github.com/eugene-tarassov/vivado-risc-v/issues/177).
 
 # Usage
 
